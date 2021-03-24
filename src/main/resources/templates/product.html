@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+
+<head>
+<link  th:href="@{/css/product/productcard.css}" rel="stylesheet" />
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body>
+	
+
+	<th:block th:include="/menu" ></th:block>
+	
+	 <th:block th:each="product:${listproduct}" >
+		<div class="card">
+		  <img class="img-prd" th:src="@{'/image/' +${product.name}}"  style="width:100%">
+		  <h1 class="prd" th:text="${product.name}"></h1>
+		  <p> <span  class="price" th:text="${product.price}"></span> $ </p>
+		  <p class="inf-prd" th:text="${product.info}"></p>
+		  <div>
+		  <form th:action="@{/sendcart}" th:name="${product.id}"  method="get">
+		  	
+		  <button class="addcart" type="button" >ADD TO Cart</button>
+			</form>  
+			</div>
+		</div>
+	</th:block>
+				
+		
+	 <script type="text/javascript" th:inline="javascript">
+		/*<![CDATA[*/
+		var list = [[${listproduct}]];		
+		/*]]>*/
+		
+			var input = document.getElementsByClassName("addcart");
+			for(let i=0; i < input.length; i++){
+				let thisid = list[i].id;
+				let thisname = list[i].name;
+				let thisprice = list[i].price;
+				
+				var products = [];
+				if(localStorage.getItem('cart')){
+					products =JSON.parse(localStorage.getItem('cart'));
+				}
+				input[i].addEventListener('click',function(){
+					for(let u=0; u<products.length;u++){
+						if(products[u].cartid==thisid){
+							products.splice(u,1);
+							alert('a');
+						}
+					}
+					products.push({cartid: thisid, cartname: thisname, cartprice: thisprice, quantity: 1});
+					localStorage.setItem("cart", JSON.stringify(products));	
+				});
+				
+			}
+	</script>
+
+	 
+	
+</body>
+</html>

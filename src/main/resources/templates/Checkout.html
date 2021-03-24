@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+	
+		<tr th:each="info : ${userinfo}">
+		<h2> Địa Chỉ </h2>
+		 <p> <span  class="ten" th:text="${info.name}"></span> </p>
+     	<p> <span  class="phone" th:text="${info.phone}"></span> </p>
+     	<p> <span  class="dia chi " th:text="${info.address}"></span> tỉnh </span> <span class = "province" th:text="${info.province}"></span> </p>
+     	
+		</tr>
+		<a href="sendcheckout" onclick="postDataApi();"> Đặt Mua</a>
+		
+		<script type="text/javascript">
+	
+		function postDataApi(){
+			
+			 pro = localStorage.getItem("cart");
+			
+			$.ajax({
+				type:"POST",
+				url:"cart/sendcart",
+				headers:{
+					"Content-Type":"application/json",
+					"Accept":"application/json",
+				},
+				data: pro,
+				success:function(data){
+					console.log("post response:" + data);
+				}, 
+				error:function(jqXHR, textstatus, errorThrown){
+					
+				}
+				
+			});
+		}
+				
+		
+		</script>
+		
+		
+		
+	
+</body>
+</html>

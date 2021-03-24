@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3 style="color:red">"${filesuccess}"</h3>
+	<form th:action="@{/savefile}" action="#" th:object="${product}"  method="POST" enctype="multipart/form-data">
+		
+		Name: <input type="text" th:field="*{name}" /> <br /> <br />
+		Price <input type="number" th:field="*{price}"  /> <br /> <br />
+		
+		Info: <input type="text" th:field="*{info}" /> <br /> <br />
+		Select File: <input type="file" name="file "/> <br /> <br />
+		<button type="submit">Submit</button>
+	</form>
+	
+</body>
+</html>

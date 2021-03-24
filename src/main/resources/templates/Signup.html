@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	
+<body>
+	<th:block th:include="/menu"></th:block> 
+	<form action="#" th:action="@{/add}" th:object="${customer1}" enctype="multipart/form-data" method="post">
+
+	  <div class="container">
+	    <label>Account:</label>
+	    <input type="text" th:field="*{account}" /><br>
+	   	<span th:if="${#fields.hasErrors('account')}" th:errors="*{account}"> loi tai khoan</span><br>    
+	    <label>Password:</label>
+	    <input type="password" th:field="*{password}"/><br>
+	   	<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password errors</span><br>
+	    <label>Email:</label>
+	    <input type="email" th:field="*{email}"/><br>
+	    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
+	    
+	    
+	  </div>
+	
+	  <div class="container" style="background-color:#f1f1f1">
+	    <button type="button" class="cancelbtn">Cancel</button>
+	    <button type="submit" Class="cancelbtn" value="Submit">Submit</button>
+
+	  </div>
+	</form>
+</body>
+</html>

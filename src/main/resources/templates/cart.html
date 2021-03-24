@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../static/css/cart" th:href="@{/css/cart/cartcss.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/js/cart/cartjs.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+	<th:block th:include="/menu" ></th:block>
+
+<div class="modal" id="mymodal">
+	<div class="modal-content">
+		<div class="modal-header">
+				<h5 class="modal-title"> GIỎ HÀNG </h5>
+				
+		</div>
+			
+		<div class="modal-body">
+			<div class="cart-row">	
+				<span class="cart-item cart-header cart-column">Sản Phẩm</span>
+				<span class="cart-price cart-header cart-column">Giá</span>
+				<span class="cart-quantity cart-header cart-column ">Số Lượng</span>
+					
+			</div>
+			<div class="cart-items" id="cartrent">   
+            	
+                
+			</div>
+            
+            </div>
+			<div class="cart-total">
+                <strong class="cart-total-title">Tổng Cộng:</strong>
+                <span id = "my-total-cart" class="cart-total-price"></span>
+            </div>
+            
+		
+		
+		
+		</div>
+		</div>
+		<a href="User"> click thanh toan</a>
+		
+		
+		
+		
+	
+		
+	
+</body>
+</html>

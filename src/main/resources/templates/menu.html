@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+<link  th:href="@{/css/page/home.css}" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" th:src="@{/js/product/productcart.js}"></script>
+</head>
+
+
+<body>
+		
+		<div class="topnav">
+		
+  		<a class="active" th:href="@{/}">Home</a> 
+  		<a href="/Sản phẩm">product</a>
+ 		<a href="/User1">User</a>
+ 		<a sec:authorize="hasRole('ADMIN')" href="/index">Addproduct</a>
+  		<div class="topnav-right" >
+  		
+  		<a sec:authorize="isAnonymous()" href="/login">Log in</a>
+  		
+  		<a  sec:authorize="isAnonymous()" href="/redic">Sign up</a>
+  		<span sec:authentication="name"></span>
+  		<a sec:authorize="hasAnyRole('ADMIN','CUSTOMER')" href='/logout'>Logout</a>
+  		
+  		</div>
+  		<a href="cart" class="cart">
+  			<span>Giỏ Hàng</span>
+  			<span  class="number" ><i class="fa fa-shopping-cart"></i>3</span>
+  		</a>
+  		
+		</div>
+	<div style="max-height: 30vh; overflow: hidden;">
+            <div>
+                <img th:src="@{https://i.imgur.com/vX8LONV.jpg}" style="width:100vw;">
+            </div>
+ 		
+        </div>
+    </div>
+   
+
+
+
+
+
+
+</body>
+</html>

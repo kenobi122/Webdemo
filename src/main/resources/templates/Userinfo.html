@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../static/css/Checkout.css" th:href="@{css/Checkout.css}" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+			<th:block th:include="/menu" ></th:block>
+		
+  <form th:action = "@{/info}" method="post" th:object="${userinfo}">
+  <div class="formto">
+    <h1>
+        Nhap thong tin
+    </h1>
+    <label class="column " >Ten</label>
+    <input class="column" type="text" th:field="*{name}" /><br>
+    <label class="column " >so dien thoai</label>
+    <input class="column"  type="text" th:field="*{phone}" /><br>
+    <select class="column"  id="tinh" th:field="*{province}" >
+        <option th:each="p: ${listProvince}" th:value="${p}" th:text="${p}" />
+    </select><br>
+    
+    <label class="column "  >Dia chi</label>
+    <input class="column" type="text" th:field="*{address}" /><br>
+    <button type="submit" class="registerbtn" >Thanh Toan</button>
+    
+ 
+	
+  
+ 	
+  
+		
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:include="/menu"></th:block>
+	Logged user: <span sec:authentication="name"></span> <br/>
+	Role: <span sec:authentication="principal.authorities"></span>
+	
+</body>
+</html>
