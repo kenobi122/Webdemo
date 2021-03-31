@@ -65,6 +65,7 @@ public class CustomerService implements UserDetailsService {
 		return new org.springframework.security.core.userdetails.User(customer.getAccount(), customer.getPassword() , grantedauthority);
 		
 	}
+	/// save customer account
 	public void SaveCustomer(Customer customer) {
 		final String encryptpassword = passencoder.encode(customer.getPassword());
 		
@@ -76,12 +77,13 @@ public class CustomerService implements UserDetailsService {
 		
 		repo.saveAndFlush(customer);
 	}
-	
+	// find accoutn name
 	public Customer find(String name) {
 		
 		return repo.findByAccount(name);
 		
 	}
+	// find product
 	public List<Product> findProduct(){
 		return prorepo.findAll();
 	}

@@ -6,5 +6,5 @@ import en.spring.model.Cartmodel;
 
 @Repository
 public interface CartmodelRepository extends JpaRepository<Cartmodel,Long> {
-
+	public Cartmodel findCartmodelByCartid(int id);
 }

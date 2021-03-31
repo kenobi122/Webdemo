@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Admin</title>
 </head>
 <body>
+	<h2> Thêm sản phẩm </h2>
 	<h3 style="color:red">"${filesuccess}"</h3>
 	<form th:action="@{/savefile}" action="#" th:object="${product}"  method="POST" enctype="multipart/form-data">
 		

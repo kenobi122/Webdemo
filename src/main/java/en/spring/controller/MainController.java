@@ -98,7 +98,8 @@ public class MainController {
 		return "redirect:/home";
 	}
 	@GetMapping("/user1")
-	public String user() {
+	public String user(Model model) {
+		
 		return "User";
 	}
 	
