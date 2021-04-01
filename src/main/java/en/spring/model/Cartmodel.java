@@ -10,8 +10,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Cartmodel {
 	 @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    private Long id;
+	 @GeneratedValue(strategy = GenerationType.AUTO)
+	 private Long id;
 	@Column(name = "cartid")
 	private int Cartid;
 	@Column(name = "cartname")
